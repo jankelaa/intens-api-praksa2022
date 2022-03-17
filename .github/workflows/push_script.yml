@@ -9,3 +9,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Maven build/package
         run: mvn -B package --file pom.xml
+      - name: Push docker image
+        run: heroku container:push web --app intens-api-praksa2022
+      - name: Release docker image
+        run: heroku container:release web --app intens-api-praksa2022        
